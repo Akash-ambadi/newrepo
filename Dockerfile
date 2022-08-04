@@ -1,5 +1,5 @@
 FROM centos:latest
-RUN sudo yum install -y httpd
+RUN yum install -y apache2
 RUN sudo yum install -y wget 
 RUN sudo yum install -y unzip 
 RUN wget https://www.free-css.com/assets/files/free-css-templates/download/page281/dotnet.zip
