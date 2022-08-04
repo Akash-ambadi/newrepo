@@ -1,4 +1,4 @@
-FROM centos:latest
+FROM centos
 RUN sudo yum install wget unzip httpd -y
 RUN sudo yum install -y zip 
 RUN sudo systemctl start httpd
