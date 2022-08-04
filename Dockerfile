@@ -1,11 +1,13 @@
 FROM centos:latest
-RUN yum install -y httpd 
-RUN yum install -y zip 
-RUN yum install -y unzip 
- ADD https://www.free-css.com/assets/files/free-css-templates/download/page254/photogenic.zip /var/www/html/
+RUN sudo yum install wget unzip httpd -y
+RUN sudo yum install -y zip 
+RUN sudo systemctl start httpd
+RUN sudo systemctl enable httpd
+ ADD https://www.tooplate.com/zip-templates/2098_health.zip /var/www/html/
  WORKDIR /var/www/html
- RUN unzip photogenic.zip
- RUN cp -rvf photogenic/*
- RUN rm -rf photogenic photogenic.zip
+ RUN 2098_health.zip
+ RUN cp -r 2098_health/* 
+ RUN sudo systemctl restart httpd
+ RUN rm -rf 2098_health 2098_health.zip
  CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
  EXPOSE 80
