@@ -1,11 +1,11 @@
 FROM centos:latest
-RUN yum install -y httpd \
-  zip\
- unzip
- ADD https://www.tooplate.com/zip-templates/2125_artxibition.zip /var/www/html/
+RUN yum install -y httpd 
+RUN yum install -y zip 
+RUN yum install -y unzip 
+ ADD https://www.free-css.com/free-css-templates/page281/biznews.zip /var/www/html/
  WORKDIR /var/www/html
- RUN unzip 2125_artxibition.zip
- RUN cp -rvf 2125_artxibition/*
- RUN rm -rf 2125_artxibition 2125_artxibition.zip
+ RUN unzip biznews.zip
+ RUN cp -rvf biznews/*
+ RUN rm -rf biznews biznews.zip
  CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
  EXPOSE 80
